@@ -23,7 +23,7 @@ Y2=Xreal(7,:);
 Y3=Xreal(5,:);
 Y4=Xreal(4,:);
 Y=[Y1;Y2;Y3;Y4];
-N=15;
+N=3;
 Xb=zeros(n,N,Tsim);
 Xa=Xb;
 
@@ -44,16 +44,17 @@ for i=1:Tsim-1
     for en=1:N
         Xa(:,en,i+1)=Xb(:,en,i+1)+K*(Y(:,i+1)+sigma*randn(m,1)-H*Xb(:,en,i+1));
     end
-    meanxa(:,i+1)=mean(Xa(:,:,i+1),2);
+    meanxas(:,i+1)=mean(Xa(:,:,i+1),2);
 end
 figure
-plot(meanxa(6,:),'LineWidth',3)
+plot(meanxas(6,:),'LineWidth',3)
 hold on
 plot(Xreal(6,:),'LineWidth',3),legend('Analysis State','True State'),title('Using Shrinkage Stoica and all observations')
 ylim([0 2.5])
-error_Stoica=norm(abs(sum(meanxa(:,:)-Xreal(:,:))))
+error_Stoica=norm(abs(sum(meanxas(:,:)-Xreal(:,:))))
 figure
-plot(alpha),title('\alpha using Stoica')
+ plot(alpha),title('\alpha using Stoica')
+plot(Xreal(6,:)-meanxas(6,:)),title('Using Shrinkage Stoica and all observations')
 
 
 %===Using Ledoid and Wolf===
@@ -80,7 +81,9 @@ hold on
 plot(Xreal(6,:),'LineWidth',3),legend('Analysis State','True State'),title('Using Shrinkage Ledoid and Wolf and all observations')
 ylim([0 2.5])
 error_Ledoid=norm(abs(sum(meanxa(:,:)-Xreal(:,:))))
-% figure
+figure
+plot(Xreal(6,:)-meanxa(6,:)),title('Using Shrinkage Ledoid and Wolf and all observations')
+
 % plot(alpha),title('\alpha using Ledoid and Wolf')
 
 
@@ -188,5 +191,6 @@ figure
 plot(meanxa(6,:),'LineWidth',3)
 hold on
 plot(Xreal(6,:),'LineWidth',3),legend('Analysis State','True State'),title('Using all observations and Schur Product')
+plot(Xreal(6,:)-meanxa(6,:)),title('Using all observations and Schur Product')
 ylim([0 2.5])
 error_Schur=norm(abs(sum(meanxa(:,:)-Xreal(:,:))))
