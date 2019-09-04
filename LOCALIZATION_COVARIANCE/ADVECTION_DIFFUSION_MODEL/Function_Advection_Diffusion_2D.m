@@ -60,7 +60,8 @@ C=zeros(Xnum,Ynum,Tnum+2);
 %% Iteration based on forward integration scheme
 
 for en=1:N
-    pertur=-1+2*rand(1,1);
+%     pertur=-1+2*rand(1,1);
+     pertur=randn(1,1);
     C(:,:,2)=vec2mat(squeeze(X0(:,en)),Ynum)';
     
 

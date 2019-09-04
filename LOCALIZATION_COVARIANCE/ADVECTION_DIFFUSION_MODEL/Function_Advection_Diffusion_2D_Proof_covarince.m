@@ -61,7 +61,6 @@ C=zeros(Xnum,Ynum,Tnum);
 
 %% Iteration based on forward integration scheme
 for en=1:N
-    disp([num2str((en/N)*100) '%'])
     pertur=randn(1,1);
     for k=2:Tnum
 
