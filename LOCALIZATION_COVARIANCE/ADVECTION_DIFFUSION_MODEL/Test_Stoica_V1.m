@@ -51,7 +51,7 @@ plot(meanxa(6,:),'LineWidth',3)
 hold on
 plot(Xreal(6,:),'LineWidth',3),legend('Analysis State','True State'),title('Using Shrinkage Stoica and all observations')
 ylim([0 2.5])
-error_Stoica=norm((sum(meanxa(:,:)-Xreal(:,:))))
+error_Stoica=norm(abs(sum(meanxa(:,:)-Xreal(:,:))))
 figure
 plot(alpha),title('\alpha using Stoica')
 
@@ -79,7 +79,7 @@ plot(meanxa(6,:),'LineWidth',3)
 hold on
 plot(Xreal(6,:),'LineWidth',3),legend('Analysis State','True State'),title('Using Shrinkage Ledoid and Wolf and all observations')
 ylim([0 2.5])
-error_Ledoid=norm((sum(meanxa(:,:)-Xreal(:,:))))
+error_Ledoid=norm(abs(sum(meanxa(:,:)-Xreal(:,:))))
 % figure
 % plot(alpha),title('\alpha using Ledoid and Wolf')
 
@@ -114,7 +114,7 @@ plot(meanxa(6,:),'LineWidth',3)
 hold on
 plot(Xreal(6,:),'LineWidth',3),legend('Analysis State','True State'),title('Using only Y1 and Y2')
 ylim([0 2.5])
-error_Valley=norm((sum(meanxa(:,:)-Xreal(:,:))))
+error_Valley=norm(abs(sum(meanxa(:,:)-Xreal(:,:))))
 %=====Scenario asimilating all observations===
 %==Observations===
 Y1=Xreal(8,:);
@@ -151,7 +151,7 @@ plot(meanxa(6,:),'LineWidth',3)
 hold on
 plot(Xreal(6,:),'LineWidth',3),legend('Analysis State','True State'),title('Using all observations')
 ylim([0 2.5])
-error_All=norm((sum(meanxa(:,:)-Xreal(:,:))))
+error_All=norm(abs(sum(meanxa(:,:)-Xreal(:,:))))
 
 %=====Scenario asimilating all observations===
 %==Observations===
@@ -189,4 +189,4 @@ plot(meanxa(6,:),'LineWidth',3)
 hold on
 plot(Xreal(6,:),'LineWidth',3),legend('Analysis State','True State'),title('Using all observations and Schur Product')
 ylim([0 2.5])
-error_Schur=norm((sum(meanxa(:,:)-Xreal(:,:))))
+error_Schur=norm(abs(sum(meanxa(:,:)-Xreal(:,:))))
