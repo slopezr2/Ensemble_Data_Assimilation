@@ -2,7 +2,7 @@
 %%  Clean
 % clc;clear all;%close all
 
-function [X]=Function_Advection_Diffusion_2D(N,Tnum,X0,ii)
+function [X]=Function_Advection_Diffusion_2D_V3(N,Tnum,X0,ii)
 %% ====Ensemble configuration====
 % N=10;
 
@@ -61,15 +61,20 @@ C=zeros(Xnum,Ynum,Tnum+2);
 
 for en=1:N
 %     pertur=-1+2*rand(1,4);
-     pertur=2*rand(1,4);
+     pertur=2*rand(1,10);
 %      pertur=ones(1,4);
     C(:,:,2)=vec2mat(squeeze(X0(:,en)),Ynum)';
     
-    C(12,12,:)=C0*pertur(1,1);  
+      C(12,12,:)=C0*pertur(1,1);  
       C(10,14,:)=C0*pertur(1,2);
       C(13,9,:)=C0*pertur(1,3);
       C(11,8,:)=C0*pertur(1,4);
-    
+      C(2,4,:)=C0*pertur(1,5);
+      C(1,16,:)=C0*pertur(1,6);
+      C(4,11,:)=C0*pertur(1,7);
+      C(8,3,:)=C0*pertur(1,8);
+      C(18,9,:)=C0*pertur(1,9);
+      C(15,18,:)=C0*pertur(1,10);
 
     for k=2:Tnum+1
 

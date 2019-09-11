@@ -2,9 +2,10 @@
 %%  Clean
 % clc;clear all;%close all
 
-function [X]=Function_Advection_Diffusion_2D(N,Tnum,X0,ii)
+function [X]=Function_Advection_Diffusion_2D_Proof_covarince_V2(N,Tnum)
 %% ====Ensemble configuration====
 % N=10;
+
 
 
 
@@ -31,51 +32,44 @@ Dy(5,9:15)=Dy_mountain;
 Dy(15,9:15)=Dy_mountain;
 Ux=1*ones(Xnum,Ynum);
 Uy=1*ones(Xnum,Ynum);
-Ux_mountain=1;
-Uy_mountain=1;
-Ux(:,5)=Ux_mountain;
-Ux(:,15)=Ux_mountain;
-Ux(9,:)=Ux_mountain;
-Ux(15,:)=Ux_mountain;
+Ux_mountain=8e-2;
+Uy_mountain=8e-2;
+Ux(9:15,5)=Ux_mountain;
+Ux(9:15,15)=Ux_mountain;
+Ux(9,5:15)=Ux_mountain;
+Ux(15,5:15)=Ux_mountain;
 Uy=1*ones(Xnum,Ynum);
-Uy(:,5)=Uy_mountain;
-Uy(:,15)=Uy_mountain;
-Uy(9,:)=Uy_mountain;
-Uy(15,:)=Uy_mountain;
+Uy(9:15,5)=Uy_mountain;
+Uy(9:15,15)=Uy_mountain;
+Uy(9,5:15)=Uy_mountain;
+Uy(15,5:15)=Uy_mountain;
 C0=2;                   % Species initial concentration fixed
 Cinf= 0;               % Species boundary concentration fixed
 x=0:dx:Xlarge;           % vector of positions x
 y=0:dy:Ylarge;           % vector of positions y
-%% Calcule of parameters 
-X=zeros(Xnum*Ynum,N);
 
+%% Calcule of parameters 
+X=zeros(Xnum*Ynum,Tnum,N);
 
 %%  %Initialize concentrations in the C(x,t) matrix and plot measurements
-C=zeros(Xnum,Ynum,Tnum+2);        
+C=zeros(Xnum,Ynum,Tnum);        
 
 %% Boundary conditions
 
 
 
 %% Iteration based on forward integration scheme
-
 for en=1:N
-%     pertur=-1+2*rand(1,4);
-     pertur=2*rand(1,4);
-%      pertur=ones(1,4);
-    C(:,:,2)=vec2mat(squeeze(X0(:,en)),Ynum)';
-    
-    C(12,12,:)=C0*pertur(1,1);  
+%     pertur=1*rand(1,4);
+    pertur=ones(1,4);
+    for k=2:Tnum
+
+      C(12,12,:)=C0*pertur(1,1);  
       C(10,14,:)=C0*pertur(1,2);
       C(13,9,:)=C0*pertur(1,3);
       C(11,8,:)=C0*pertur(1,4);
     
-
-    for k=2:Tnum+1
-
-      
-    
-    if ii<1600
+    if k<1600
         for i=2:Xnum-1
         for j=2:Ynum-1
             Lambday=Dy(i,j)*dt/((dy)^2);
@@ -88,7 +82,7 @@ for en=1:N
         end
     end
 
-% if ii>=600 && ii<1200
+% if k>=600 && k<1200
 %     for i=2:Xnum-1
 %     for j=2:Ynum-1
 %             Lambday=Dy(i,j)*dt/((dy)^2);
@@ -101,7 +95,7 @@ for en=1:N
 %     end
 % end
 % 
-% if ii>=1200 
+% if k>=1200 
 %     for i=2:Xnum-1
 %     for j=2:Ynum-1
 %             Lambday=Dy(i,j)*dt/((dy)^2);
@@ -113,13 +107,64 @@ for en=1:N
 %     end
 %     end
 % end
-
-    aux=squeeze(C(:,:,k+1));
-    aux2=aux(:);
+        
+        
+        
+    aux=squeeze(C(:,:,k));
+    aux2(:,k)=aux(:);
 
 
     end
-    X(:,en)=aux2;
+    X(:,:,en)=aux2;
     
 end
 
+
+
+% %===Grafica===
+% for k=2:40:Tnum
+% 
+% 
+% hFig=figure(3);
+%          
+%        ax1= imagesc(C(:,:,k));
+%        xlim([0 20])
+%        ylim([0 20])
+%         
+%         
+% colormap(hFig,flipud(hot))
+%         
+%         title(['Four factories emitting pollutants ',num2str(k)],'Interpreter','latex')
+%         hold on
+%         plot(5:15,9*ones(11),'g','LineWidth',2)
+%         plot(5:15,15*ones(11),'g','LineWidth',2)
+%         plot(5*ones(7),9:15,'g','LineWidth',2)
+%         plot(15*ones(7),9:15,'g','LineWidth',2)
+%        hold on
+%        plot(12,12,'k.','MarkerSize',13)
+%        plot(14,10,'k.','MarkerSize',13)
+%        plot(8,11,'k.','MarkerSize',13)
+%        plot(9,13,'k.','MarkerSize',13)
+%        
+% Ux(:,5)=Ux_mountain;
+% Ux(:,15)=Ux_mountain;
+% Ux(9,:)=Ux_mountain;
+% Ux(15,:)=Ux_mountain;
+% 
+% 
+% %        plot(4,1,'k*','MarkerSize',13)
+% %        plot(5,1,'k*','MarkerSize',13)
+% % %        plot(7,1,'k*','MarkerSize',13)
+% % %        plot(8,1,'k*','MarkerSize',13)
+% 
+% caxis([0 1.5*C0]);
+% 
+%        
+%         colorbar
+%         xlabel('X grid','Interpreter','latex')
+%         ylabel('Y grid','Interpreter','latex')
+%         hold on         
+%        refreshdata(hFig)
+% 
+%      
+% end

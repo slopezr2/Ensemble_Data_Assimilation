@@ -2,10 +2,9 @@
 %%  Clean
 % clc;clear all;%close all
 
-function [X]=Function_Advection_Diffusion_2D_Proof_covarince(N,Tnum)
+function [X]=Function_Advection_Diffusion_2D(N,Tnum,X0)
 %% ====Ensemble configuration====
 % N=10;
-
 
 
 
@@ -47,41 +46,76 @@ C0=2;                   % Species initial concentration fixed
 Cinf= 0;               % Species boundary concentration fixed
 x=0:dx:Xlarge;           % vector of positions x
 y=0:dy:Ylarge;           % vector of positions y
-
 %% Calcule of parameters 
-X=zeros(Xnum*Ynum,Tnum,N);
+X=zeros(Xnum*Ynum,N);
 
 
 %%  %Initialize concentrations in the C(x,t) matrix and plot measurements
-C=zeros(Xnum,Ynum,Tnum);        
+C=zeros(Xnum,Ynum,Tnum+2);        
 
 %% Boundary conditions
 
 
 
 %% Iteration based on forward integration scheme
+
 for en=1:N
-    pertur=randn(1,1);
+%     pertur=-1+2*rand(1,1);
+     pertur=2*rand(1,4);
     for k=2:Tnum
 
-      C(1,12,:)=C0;  
-
+      C(12,12,:)=C0*pertur(1,1);  
+      C(10,14,:)=C0*pertur(1,2);
+      C(13,9,:)=C0*pertur(1,3);
+      C(11,8,:)=C0*pertur(1,4);
     
-        for i=1:Xnum
+    if k<600
+        for i=2:Xnum-1
         for j=2:Ynum-1
             Lambday=Dy(i,j)*dt/((dy)^2);
             Gammay=Uy(i,j)*dt/dy;
             Lambdax=Dx(i,j)*dt/((dx)^2);
             Gammax=Ux(i,j)*dt/dx;
-            C(i,j,k+1)=C(i,j,k)+ Lambday*(C(i,j+1,k)+C(i,j,k)+C(i,j-1,k))+Gammay*(C(i,j+1,k)-C(i,j,k));
+            C(i,j,k+1)=C(i,j,k)+Lambdax*(C(i+1,j,k)+C(i,j,k)+C(i-1,j,k))+Gammax*(C(i-1,j,k)-C(i,j,k))+...
+                 Lambday*(C(i,j+1,k)+C(i,j,k)+C(i,j-1,k))+Gammay*(C(i,j-1,k)-C(i,j,k));
         end
         end
-    aux=squeeze(C(:,:,k));
-    aux2(:,k)=aux(:);
+    end
+
+if k>=600 && k<1200
+    for i=2:Xnum-1
+    for j=2:Ynum-1
+            Lambday=Dy(i,j)*dt/((dy)^2);
+            Gammay=Uy(i,j)*dt/dy;
+            Lambdax=Dx(i,j)*dt/((dx)^2);
+            Gammax=Ux(i,j)*dt/dx;
+        C(i,j,k+1)=C(i,j,k)+Lambdax*(C(i+1,j,k)+C(i,j,k)+C(i-1,j,k))+Gammax*(C(i+1,j,k)-C(i,j,k))+...
+             Lambday*(C(i,j+1,k)+C(i,j,k)+C(i,j-1,k))+Gammay*(C(i,j-1,k)-C(i,j,k));
+    end
+    end
+end
+
+if k>=1200 
+    for i=2:Xnum-1
+    for j=2:Ynum-1
+            Lambday=Dy(i,j)*dt/((dy)^2);
+            Gammay=Uy(i,j)*dt/dy;
+            Lambdax=Dx(i,j)*dt/((dx)^2);
+            Gammax=Ux(i,j)*dt/dx;
+        C(i,j,k+1)=C(i,j,k)+Lambdax*(C(i+1,j,k)+C(i,j,k)+C(i-1,j,k))+Gammax*(C(i-1,j,k)-C(i,j,k))+...
+             Lambday*(C(i,j+1,k)+C(i,j,k)+C(i,j-1,k))+Gammay*(C(i,j+1,k)-C(i,j,k));
+    end
+    end
+end
+
+    aux=squeeze(C(:,:,k+1));
+    aux2=aux(:);
 
 
     end
-    X(:,:,en)=aux2;
+    X(:,en)=aux2;
     
 end
+
+
 

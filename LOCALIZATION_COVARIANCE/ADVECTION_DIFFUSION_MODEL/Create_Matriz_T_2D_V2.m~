@@ -1,0 +1,49 @@
+%====Algorithm to create Target Matrix EnKF-KA====
+clear all
+load RHO_advection.mat
+n=400; %Number of states
+ncolumn=20; %Number of columns
+nrow=n/ncolumn;
+% T=zeros(n);
+T=RHO_advection;
+Radius=4; %Radius of localization
+r=Radius+2;
+KA=0; %Include Knownledge
+dist = [0 : ncolumn - 1];
+coeffs = exp(-1* (dist / Radius) .^ 2);
+%===Physical restrictions====
+NRest=2; %Number of restrictions
+Rest_vert=9:15;
+Rest_hori=5:15;
+for i=1:n
+    %===Detection of row and column
+     [row,column]=ind2sub([nrow,ncolumn],i);
+     row_radius=[max(1,row-r):1:min(nrow,row+r)];
+     column_radius=[max(1,column-r):1:min(ncolumn,column+r)];
+     for j=1:length(row_radius)
+         for k=1:length(column_radius)
+             D=Distance_2d([row column],[row_radius(j) column_radius(k)]);
+             state=sub2ind([nrow,ncolumn],row_radius(j), column_radius(k));
+              T(i,state)=coeffs(floor(D)+1);
+             if KA==1 && row>Rest_vert(1) && row<Rest_vert(end) && column>Rest_hori(1) && column<Rest_hori(end) && (row_radius(j)<=Rest_vert(1) || row_radius(j)>=Rest_vert(end) || column_radius(k)<=Rest_hori(1) || column_radius(k)>=Rest_hori(end) )  
+                T(i,state)=0;
+                T(state,i)=0;
+                titulo=['Covariance Proposed Structure with a localization radius of ',num2str(Radius),' and incorporing previous knowledge'];
+             else
+               titulo=['Covariance Proposed Structure with a localization radius of ',num2str(Radius),' without incorporing previous knowledge'];   
+              end
+             
+         end
+         
+     end
+     
+     
+     
+end
+figure
+imagesc(T)
+colormap(hFig,flipud(hot))
+title(titulo)
+xlabel('States')
+ylabel('States')
+colorb
