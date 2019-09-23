@@ -128,8 +128,8 @@ end
 
 
 %===Grafica===
-for k=2:40:Tnum
-
+% for k=2:40:Tnum
+for k=842:842
 
 hFig=figure(3);
          
@@ -141,11 +141,11 @@ hFig=figure(3);
 colormap(hFig,flipud(hot))
         
         title(['Four factories emitting pollutants ',num2str(k)],'Interpreter','latex')
-        hold on
-        plot(5:15,9*ones(11),'g','LineWidth',2)
-        plot(5:15,15*ones(11),'g','LineWidth',2)
-        plot(5*ones(7),9:15,'g','LineWidth',2)
-        plot(15*ones(7),9:15,'g','LineWidth',2)
+%         hold on
+%         plot(5:15,9*ones(11),'g','LineWidth',2)
+%         plot(5:15,15*ones(11),'g','LineWidth',2)
+%         plot(5*ones(7),9:15,'g','LineWidth',2)
+%         plot(15*ones(7),9:15,'g','LineWidth',2)
        hold on
        plot(12,12,'k.','MarkerSize',13)
        plot(14,10,'k.','MarkerSize',13)

@@ -8,7 +8,7 @@ nrow=n/ncolumn;
 T=RHO_advection;
 Radius=4; %Radius of localization
 r=Radius+2;
-KA=1; %Include Knownledge
+KA=0; %Include Knownledge
 dist = (0 : ncolumn - 1);
 coeffs = exp(-1* (dist / Radius) .^ 2);
 %===Physical restrictions====
