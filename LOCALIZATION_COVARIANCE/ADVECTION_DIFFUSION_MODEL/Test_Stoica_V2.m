@@ -11,7 +11,7 @@ load RHO_advection_r5.mat
 load RHO_T_Schur_r1
 load RHO_T_Schur_r2
 load meanP0
-Tsim=1000;
+Tsim=1500;
 m=200;
 n=20*20;
 sigma=1e-3;
@@ -54,15 +54,15 @@ end
 t_EnKF_KA=toc(aux)
 error_EnKF_KA=norm(abs(sum(meanxa_EnKF_KA(:,:)-Xreal(:,:))))
 % % 
-% % figure
-% % imagesc(Xreal),title('Truth State')
-% % caxis([0 1.1])
-% % figure
-% % imagesc(meanxa_stoica),title('Analysis State EnKF_KA')
-% % caxis([0 1.1])
- figure
-plot(0.5+alpha,'LineWidth',3),title(['\alpha Value for the EnKF-KA using N= ',num2str(N)])
-xlabel('Time [h]')
+% figure
+% imagesc(Xreal),title('Truth State')
+% caxis([0 1.1])
+% figure
+% imagesc(meanxa_stoica),title('Analysis State EnKF_KA')
+% caxis([0 1.1])
+%  figure
+% plot(0.5+alpha,'LineWidth',3),title(['\alpha Value for the EnKF-KA using N= ',num2str(N)])
+% xlabel('Time [h]')
 % 
 % %===Using Ledoid and Wolf===
 % aux=tic;

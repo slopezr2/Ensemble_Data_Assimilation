@@ -3,17 +3,9 @@
 clear all
 close all
 clc
-% try alpha_a=sum(alpha(:,1:k-1),2).*randn(n,1);
-%                                  catch    
-%                                     N_errores(obs,freq,en,rad,gamma,exp)=N_errores(obs,freq,en,rad,gamma,exp)+1;
-%                                     continue
-%                                   end
-% 
-
-
 load T_advection_rho.mat
 load RHO_T_Schur_r1
-Tsim=1000;
+Tsim=1500;
 Nexp=5; %Number of experiments for each scenario
 for Nm=1:3
     m_opt=[50 100 200];    
