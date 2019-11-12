@@ -10,14 +10,10 @@ level=2;
 %==For 3D variables===
 for i=[1,3]
     %===XA===
-    aux=xmr_time(i);
+    aux=xma_time(1,i,snapshot);
     aux=aux{1};
-    Z=aux(:,:,level,snapshot-1)';
+    Z=aux(:,:,level)';
     Z=[Z(:,end/2+1:end) Z(:,1:end/2)];
-%     aux=xma_time(1,i,snapshot);
-%     aux=aux{1};
-%     Z=aux(:,:,level)';
-%     Z=[Z(:,end/2+1:end) Z(:,1:end/2)];
     figure
 %      subplot(2,4,[7 8])
     fig=worldmap('World');
@@ -30,7 +26,6 @@ for i=[1,3]
     set(gca,'LooseInset',get(gca,'TightInset')); 
     title(['Analysis State'],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
 caxis([x1lim(i) x2lim(i)])
-    colorbar
     %===XB===
     aux=xmb_time(1,i,6);
     aux=aux{1};
@@ -47,9 +42,8 @@ figure
     plotm(lat, long, 0.01,'k');
     colormap(fig,'jet');
     set(gca,'LooseInset',get(gca,'TightInset')); 
-    title(['Background State'],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
+    title(['Background State for ' variables(i)],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
 caxis([x1lim(i) x2lim(i)])
-    colorbar
     %===real===
     aux=xmr_time(i);
     aux=aux{1};
@@ -66,9 +60,8 @@ figure
     plotm(lat, long, 0.01,'k');
     colormap(fig,'jet');
     set(gca,'LooseInset',get(gca,'TightInset')); 
-    title(['True State '],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
+    title(['True State ' variables(i)],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
     caxis([x1lim(i) x2lim(i)])
-    colorbar
 end
 %     %===XA===
 %     aux=xma_time(1,5,snapshot);
