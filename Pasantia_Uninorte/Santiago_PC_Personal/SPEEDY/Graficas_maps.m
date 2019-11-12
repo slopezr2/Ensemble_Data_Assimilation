@@ -28,7 +28,7 @@ for i=[1,3]
     plotm(lat, long, 0.01,'k');
     colormap(fig,'jet');
     set(gca,'LooseInset',get(gca,'TightInset')); 
-    title(['Analysis State'],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
+%     title(['Analysis State'],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
 caxis([x1lim(i) x2lim(i)])
     colorbar
     %===XB===
@@ -47,7 +47,7 @@ figure
     plotm(lat, long, 0.01,'k');
     colormap(fig,'jet');
     set(gca,'LooseInset',get(gca,'TightInset')); 
-    title(['Background State'],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
+%     title(['Background State'],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
 caxis([x1lim(i) x2lim(i)])
     colorbar
     %===real===
@@ -66,7 +66,7 @@ figure
     plotm(lat, long, 0.01,'k');
     colormap(fig,'jet');
     set(gca,'LooseInset',get(gca,'TightInset')); 
-    title(['True State '],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
+%     title(['True State '],'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
     caxis([x1lim(i) x2lim(i)])
     colorbar
 end

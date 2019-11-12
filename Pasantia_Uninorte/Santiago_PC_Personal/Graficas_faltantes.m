@@ -34,7 +34,7 @@ grid on
 legend({'r=1','r=5','r=10'},'FontSize',12)
 titulo=['\delta' 't= ' num2str(16) ' ,N= ' num2str(80) ' ,s= ' num2str(0.7) ' ,\gamma= ' num2str(1)   ];
 title(titulo,'FontAngle','italic','FontSize',16,'FontName','Arial','FontWeight','Normal','Interpreter','tex')
-titulo2=['delta_t=_' num2str(16) '_N=' num2str(80) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.svg'];
+titulo2=['delta_t=_' num2str(16) '_N=' num2str(80) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.eps'];
 saveas(fig,titulo2)
 titulo3=['delta_t=_' num2str(16) '_N=' num2str(80) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.fig'];
  saveas(fig,titulo3)
@@ -56,7 +56,7 @@ grid on
 legend({'r=1','r=5','r=10'},'FontSize',12)
 titulo=['\delta' 't= ' num2str(80) ' ,N= ' num2str(80) ' ,s= ' num2str(0.7) ' ,\gamma= ' num2str(1)   ];
 title(titulo,'FontAngle','italic','FontSize',16, 'FontName','Arial','FontWeight','Normal','Interpreter','tex')
-titulo2=['delta_t=_' num2str(80) '_N=' num2str(80) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.svg'];
+titulo2=['delta_t=_' num2str(80) '_N=' num2str(80) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.eps'];
 saveas(fig,titulo2)
 titulo3=['delta_t=_' num2str(80) '_N=' num2str(80) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.fig'];
  saveas(fig,titulo3)
@@ -76,7 +76,7 @@ legend({'r=1','r=5','r=10'},'FontSize',12)
 grid on
 titulo=['\delta' 't= ' num2str(80) ' ,N= ' num2str(20) ' ,s= ' num2str(0.7) ' ,\gamma= ' num2str(1)   ];
 title(titulo,'FontAngle','italic','FontSize',16, 'FontName','Arial','FontWeight','Normal','Interpreter','tex')
-titulo2=['delta_t=_' num2str(80) '_N=' num2str(20) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.svg'];
+titulo2=['delta_t=_' num2str(80) '_N=' num2str(20) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.eps'];
 saveas(fig,titulo2)
 titulo3=['delta_t=_' num2str(80) '_N=' num2str(20) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.fig'];
  saveas(fig,titulo3)

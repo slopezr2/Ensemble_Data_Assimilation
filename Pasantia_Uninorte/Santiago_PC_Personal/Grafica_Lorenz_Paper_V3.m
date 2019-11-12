@@ -11,7 +11,7 @@ for obs=1:2
            for gam=[1,3,5]
                fig=figure;
                titulo=['\delta' 't= ' num2str(frequency(fre)) ' ,N= ' num2str(N_en(N)) ' ,s= ' num2str(S(obs)) ' ,\gamma= ' num2str(gam)   ];
-               titulo2=['delta_t=_' num2str(frequency(fre)) '_N=' num2str(N_en(N)) '_s=_' num2str(S(obs)) '_gamma=_' num2str(gam) '.svg'];
+               titulo2=['delta_t=_' num2str(frequency(fre)) '_N=' num2str(N_en(N)) '_s=_' num2str(S(obs)) '_gamma=_' num2str(gam) '.eps'];
                title(titulo,'FontAngle','italic','FontSize',16,'FontName','Arial')
                ini_error_XB=1000+1500*rand(1,1);
                for rad=1:3
@@ -56,9 +56,9 @@ for obs=1:2
                   
               end
               legend({'r=1','r=5','r=10'},'FontSize',12)
-%                if cont>0
-%                saveas(fig,titulo2)
-%                end
+                if cont>0
+                saveas(fig,titulo2)
+                end
            end
 
        end
@@ -67,5 +67,5 @@ for obs=1:2
     end
 end
 
-%  Graficas_faltantes
+  Graficas_faltantes
 
