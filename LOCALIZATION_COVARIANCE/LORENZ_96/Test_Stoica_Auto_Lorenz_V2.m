@@ -170,4 +170,10 @@ for Nm=1:2
             end
         end
     end
+    
+    
 end
+
+save error_Schur error_Schur
+save error_Ledoid error_Ledoid
+save error_EnKF_KA error_EnKF_KA

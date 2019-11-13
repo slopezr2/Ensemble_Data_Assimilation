@@ -28,9 +28,9 @@ fig=figure;
     grid on
     plot([0:12],squeeze([0.98*EBgamma3(1,i) EAgamma3(:,i)'] ),'Color',[0.8500    0.3250    0.0980 ],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.8500    0.3250    0.0980 ])
     plot([0:12],squeeze([0.98*EBgamma5(1,i) EAgamma5(:,i)'] ),'Color',[0.4660    0.6740    0.1880],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.4660    0.6740    0.1880])
-    legend(['\gamma=1';'\gamma=3';'\gamma=5'])
-    ylabel('log(\lambda)','FontSize',11);
-    xlabel('Assimilation step (k)','FontSize',10)
+    legend({'MLEF-MC \gamma=1';'MLEF-MC \gamma=3';'MLEF-MC \gamma=5'},'FontSize',12)
+    ylabel('log(\lambda)','FontSize',16);
+    xlabel('Assimilation step (k)','FontSize',16)
 %     title(variables{i},'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
     titulo2=(['s=07 ',variables{i},'.eps']);
      saveas(fig,titulo2,'epsc')
@@ -40,9 +40,9 @@ fig=figure;
     grid on
     plot([0:12],squeeze([0.98*EBgamma3_s1(1,i) EAgamma3_s1(:,i)'] ),'Color',[0.8500    0.3250    0.0980 ],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.8500    0.3250    0.0980 ])
     plot([0:12],squeeze([0.98*EBgamma5_s1(1,i) EAgamma5_s1(:,i)'] ),'Color',[0.4660    0.6740    0.1880],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.4660    0.6740    0.1880])
-    legend(['\gamma=1';'\gamma=3';'\gamma=5'])
-    ylabel('log(\lambda)','FontSize',11);
-    xlabel('Assimilation step (k)','FontSize',10)
+    legend({'MLEF-MC \gamma=1';'MLEF-MC \gamma=3';'MLEF-MC \gamma=5'},'FontSize',12)
+    ylabel('log(\lambda)','FontSize',16);
+    xlabel('Assimilation step (k)','FontSize',15)
 %     title(variables{i},'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
     titulo2=(['s=1 ',variables{i},'.eps']);
      saveas(fig,titulo2,'epsc')

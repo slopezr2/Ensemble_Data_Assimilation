@@ -10,10 +10,9 @@ for Nm=[1 2]
         for Nen=1:2
             Nen_opt=[20 40];
             if Nm==2 && Nen==1
-            subplot(2,2,3)    
-            else
+                
+                e
             subplot(2,2,Nm*Nen)
-            end
             a=squeeze((mean(error_Schur(Nm,freq,Nen,:,:),5)));
             [~,kk1]=max(a);
             plot(log10(movmean(squeeze((mean(error_Schur(Nm,freq,Nen,kk1,:),4))),100)),'LineWidth',2)
