@@ -32,12 +32,12 @@ ylabel('log(\lambda_k)','FontSize',12)
 xlabel('Assimilation step (k)','FontSize',12)
 grid on
 legend({'r=1','r=5','r=10'},'FontSize',12)
-titulo=['\delta' 't= ' num2str(16) ' ,N= ' num2str(80) ' ,s= ' num2str(0.7) ' ,\gamma= ' num2str(1)   ];
-title(titulo,'FontAngle','italic','FontSize',16,'FontName','Arial','FontWeight','Normal','Interpreter','tex')
-titulo2=['delta_t=_' num2str(16) '_N=' num2str(80) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.eps'];
-saveas(fig,titulo2)
+titulo=['\delta' 't= ' num2str(16) ' ,N= ' num2str(80) ' ,s= ' num2str(70) ' ,\gamma= ' num2str(1)   ];
+% title(titulo,'FontAngle','italic','FontSize',16,'FontName','Arial','FontWeight','Normal','Interpreter','tex')
+titulo2=['delta_t=_' num2str(16) '_N=' num2str(80) '_s=_' num2str(70) '_gamma=_' num2str(1) ];
+saveas(fig,titulo2,'epsc')
 titulo3=['delta_t=_' num2str(16) '_N=' num2str(80) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.fig'];
- saveas(fig,titulo3)
+%  saveas(fig,titulo3)
 rmse(1,1,3,1,1)=mean(aa(2:end));
 rmse(1,1,3,2,1)=mean(bb(2:end));
 rmse(1,1,3,3,1)=mean(bb(2:end));
@@ -55,11 +55,11 @@ xlabel('Assimilation step (k)','FontSize',12)
 grid on
 legend({'r=1','r=5','r=10'},'FontSize',12)
 titulo=['\delta' 't= ' num2str(80) ' ,N= ' num2str(80) ' ,s= ' num2str(0.7) ' ,\gamma= ' num2str(1)   ];
-title(titulo,'FontAngle','italic','FontSize',16, 'FontName','Arial','FontWeight','Normal','Interpreter','tex')
-titulo2=['delta_t=_' num2str(80) '_N=' num2str(80) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.eps'];
-saveas(fig,titulo2)
+% title(titulo,'FontAngle','italic','FontSize',16, 'FontName','Arial','FontWeight','Normal','Interpreter','tex')
+titulo2=['delta_t=_' num2str(80) '_N=' num2str(80) '_s=_' num2str(70) '_gamma=_' num2str(1) ];
+saveas(fig,titulo2,'epsc')
 titulo3=['delta_t=_' num2str(80) '_N=' num2str(80) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.fig'];
- saveas(fig,titulo3)
+%  saveas(fig,titulo3)
 rmse(1,2,3,1,1)=mean(aa1(2:end));
 rmse(1,2,3,2,1)=mean(bb1(2:end));
 rmse(1,2,3,3,1)=mean(bb1(2:end));
@@ -75,11 +75,11 @@ xlabel('Assimilation step (k)','FontSize',12)
 legend({'r=1','r=5','r=10'},'FontSize',12)
 grid on
 titulo=['\delta' 't= ' num2str(80) ' ,N= ' num2str(20) ' ,s= ' num2str(0.7) ' ,\gamma= ' num2str(1)   ];
-title(titulo,'FontAngle','italic','FontSize',16, 'FontName','Arial','FontWeight','Normal','Interpreter','tex')
-titulo2=['delta_t=_' num2str(80) '_N=' num2str(20) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.eps'];
-saveas(fig,titulo2)
+% title(titulo,'FontAngle','italic','FontSize',16, 'FontName','Arial','FontWeight','Normal','Interpreter','tex')
+titulo2=['delta_t=_' num2str(80) '_N=' num2str(20) '_s=_' num2str(70) '_gamma=_' num2str(1) ];
+saveas(fig,titulo2,'epsc')
 titulo3=['delta_t=_' num2str(80) '_N=' num2str(20) '_s=_' num2str(0.7) '_gamma=_' num2str(1) '.fig'];
- saveas(fig,titulo3)
+%  saveas(fig,titulo3)
 
 rmse(1,2,1,1,1)=mean(aa2(2:end));
 rmse(1,2,1,2,1)=mean(bb2(2:end));

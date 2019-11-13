@@ -31,9 +31,9 @@ fig=figure;
     legend(['\gamma=1';'\gamma=3';'\gamma=5'])
     ylabel('log(\lambda)','FontSize',11);
     xlabel('Assimilation step (k)','FontSize',10)
-    title(variables{i},'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
+%     title(variables{i},'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
     titulo2=(['s=07 ',variables{i},'.eps']);
-     saveas(fig,titulo2)
+     saveas(fig,titulo2,'epsc')
 fig=figure;
     plot([0:12],squeeze([0.98*EBgamma1_s1(1,i) EAgamma1_s1(:,i)'] ),'Color',[ 0    0.4470    0.7410],'LineWidth',2,'Marker','o','MarkerFaceColor',[ 0    0.4470    0.7410])
     hold on
@@ -43,8 +43,8 @@ fig=figure;
     legend(['\gamma=1';'\gamma=3';'\gamma=5'])
     ylabel('log(\lambda)','FontSize',11);
     xlabel('Assimilation step (k)','FontSize',10)
-    title(variables{i},'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
+%     title(variables{i},'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
     titulo2=(['s=1 ',variables{i},'.eps']);
-     saveas(fig,titulo2)
+     saveas(fig,titulo2,'epsc')
 end
     
