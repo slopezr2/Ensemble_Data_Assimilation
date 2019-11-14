@@ -22,29 +22,42 @@ load Santiago_Ensen_error_ExpSPEEDLW_r_N100_V2
 
 for i=1:4
 %     subplot(4,2,2*i-1)
+if i<4
+    ini=2.1*EB(1,i);
+else
+    ini=0.5*EB(1,4);
+end
+
 fig=figure;
-    plot([0:12],squeeze([0.98*EB(1,i) EA(:,i)'] ),'Color',[ 0    0.4470    0.7410],'LineWidth',2,'Marker','o','MarkerFaceColor',[ 0    0.4470    0.7410])
+    plot([0:12],squeeze([ini EA(:,i)'] ),'Color',[ 0    0.4470    0.7410],'LineWidth',2,'Marker','o','MarkerFaceColor',[ 0    0.4470    0.7410])
     hold on
     grid on
-    plot([0:12],squeeze([0.98*EBgamma3(1,i) EAgamma3(:,i)'] ),'Color',[0.8500    0.3250    0.0980 ],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.8500    0.3250    0.0980 ])
-    plot([0:12],squeeze([0.98*EBgamma5(1,i) EAgamma5(:,i)'] ),'Color',[0.4660    0.6740    0.1880],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.4660    0.6740    0.1880])
+    plot([0:12],squeeze([ini EAgamma3(:,i)'] ),'Color',[0.8500    0.3250    0.0980 ],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.8500    0.3250    0.0980 ])
+    plot([0:12],squeeze([ini EAgamma5(:,i)'] ),'Color',[0.4660    0.6740    0.1880],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.4660    0.6740    0.1880])
     legend({'MLEF-MC \gamma=1';'MLEF-MC \gamma=3';'MLEF-MC \gamma=5'},'FontSize',12)
-    ylabel('log(\lambda)','FontSize',16);
-    xlabel('Assimilation step (k)','FontSize',16)
+    ylabel('log(\lambda_t)','FontSize',16);
+    xlabel('Assimilation step (t)','FontSize',16)
+    if i<4
+       ylim([-1.25 0.7]) 
+    end
 %     title(variables{i},'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
-    titulo2=(['s=07 ',variables{i},'.eps']);
+    titulo2=(['s=07_',variables{i},'.eps']);
      saveas(fig,titulo2,'epsc')
 fig=figure;
-    plot([0:12],squeeze([0.98*EBgamma1_s1(1,i) EAgamma1_s1(:,i)'] ),'Color',[ 0    0.4470    0.7410],'LineWidth',2,'Marker','o','MarkerFaceColor',[ 0    0.4470    0.7410])
+    plot([0:12],squeeze([ini EAgamma1_s1(:,i)'] ),'Color',[ 0    0.4470    0.7410],'LineWidth',2,'Marker','o','MarkerFaceColor',[ 0    0.4470    0.7410])
     hold on
     grid on
-    plot([0:12],squeeze([0.98*EBgamma3_s1(1,i) EAgamma3_s1(:,i)'] ),'Color',[0.8500    0.3250    0.0980 ],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.8500    0.3250    0.0980 ])
-    plot([0:12],squeeze([0.98*EBgamma5_s1(1,i) EAgamma5_s1(:,i)'] ),'Color',[0.4660    0.6740    0.1880],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.4660    0.6740    0.1880])
+    plot([0:12],squeeze([ini EAgamma3_s1(:,i)'] ),'Color',[0.8500    0.3250    0.0980 ],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.8500    0.3250    0.0980 ])
+    plot([0:12],squeeze([ini EAgamma5_s1(:,i)'] ),'Color',[0.4660    0.6740    0.1880],'LineWidth',2,'Marker','o','MarkerFaceColor',[0.4660    0.6740    0.1880])
     legend({'MLEF-MC \gamma=1';'MLEF-MC \gamma=3';'MLEF-MC \gamma=5'},'FontSize',12)
-    ylabel('log(\lambda)','FontSize',16);
-    xlabel('Assimilation step (k)','FontSize',15)
+    ylabel('log(\lambda_t)','FontSize',16);
+    xlabel('Assimilation step (t)','FontSize',15)
+    if i<4
+       ylim([-1.25 0.7]) 
+    end
 %     title(variables{i},'FontAngle','italic','FontSize',12,'FontName','Arial','FontWeight','Normal')
-    titulo2=(['s=1 ',variables{i},'.eps']);
+    titulo2=(['s=1_',variables{i},'.eps']);
+    
      saveas(fig,titulo2,'epsc')
 end
     

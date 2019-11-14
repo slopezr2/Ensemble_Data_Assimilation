@@ -1,5 +1,5 @@
 %====Algorithm to create Target Matrix EnKF-KA====
-clear all
+% clear all
 load RHO_advection.mat
 n=400; %Number of states
 ncolumn=20; %Number of columns
@@ -8,7 +8,7 @@ nrow=n/ncolumn;
 T=RHO_advection;
 Radius=4; %Radius of localization
 r=Radius+2;
-KA=0; %Include Knownledge
+KA=1; %Include Knownledge
 dist = (0 : ncolumn - 1);
 coeffs = exp(-1* (dist / Radius) .^ 2);
 %===Physical restrictions====
@@ -40,7 +40,8 @@ for i=1:n
      
      
 end
-hFig=figure;
+% hFig=figure;
+subplot(1,2,2)
 imagesc(T)
 % colormap(hFig,flipud(hot))
 title(titulo)

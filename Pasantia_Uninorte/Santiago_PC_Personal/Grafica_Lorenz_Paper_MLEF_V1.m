@@ -15,10 +15,13 @@ for obs=1:2
                gam_mlefA=[1 1 2 1 3];
                gamMLEF=gam_mlefA(gam);
                fig=figure;
+                ini_error_XB=1000+1500*rand(1,1);
+               plot(0:25,log10([ini_error_XB squeeze(norma_error_x_MLEF(obs,fre,Nmlef,gamMLEF,:))']),'Color',[0 0 0],'LineWidth',2,'Marker','o','MarkerFaceColor',[0 0 0])
+               hold on
                titulo=['\delta' 't= ' num2str(frequency(fre)) ' ,N= ' num2str(N_en(N)) ' ,s= ' num2str(S(obs)) ' ,\gamma= ' num2str(gam)   ];
                titulo2=['delta_t=_' num2str(frequency(fre)) '_N=' num2str(N_en(N)) '_s=_' num2str(S(obs)*100) '_gamma=_' num2str(gam)];
 %                title(titulo,'FontAngle','italic','FontSize',16,'FontName','Arial')
-               ini_error_XB=1000+1500*rand(1,1);
+              
                for rad=1:3
                   switch rad
                         case 1 
@@ -51,8 +54,8 @@ for obs=1:2
                    rmse(obs,fre,N,rad,gam)=mean(log10(mean(linea)));
                    grid on
                    axis([0 25 -2 4])
-                   ylabel('log(\lambda_k)','FontSize',16,'Interpreter','tex')
-                   xlabel('Assimilation step (k)','FontSize',16,'Interpreter','tex')
+                   ylabel('log(\lambda_t)','FontSize',16,'Interpreter','tex')
+                   xlabel('Assimilation step (t)','FontSize',16,'Interpreter','tex')
 %                    title(titulo,'FontAngle','italic','FontSize',16,'FontName','Arial','FontWeight','Normal','Interpreter','tex')
                   
                   hold on
@@ -65,10 +68,9 @@ for obs=1:2
                    
                end
                
-              plot(0:25,log10([ini_error_XB squeeze(norma_error_x_MLEF(obs,fre,Nmlef,gamMLEF,:))']),'Color',[0 0 0],'LineWidth',2,'Marker','o','MarkerFaceColor',[0 0 0])
-              legend({'MLEF-MC r=1','MLEF-MC r=5','MLEF-MC r=10','MLEF'},'FontSize',12,'Interpreter','tex')
+              legend({'MLEF','MLEF-MC r=1','MLEF-MC r=5','MLEF-MC r=10'},'FontSize',12,'Interpreter','tex')
                 
-               saveas(fig,titulo2,'epsc')
+%                saveas(fig,titulo2,'epsc')
                
            end
 

@@ -68,7 +68,15 @@ for en=1:N
       C(10,14,:)=C0*pertur(1,2);
       C(13,9,:)=C0*pertur(1,3);
       C(11,8,:)=C0*pertur(1,4);
-    
+        C(2,4,:)=C0*pertur(1,4);
+         C(7,3,:)=C0*pertur(1,4);
+          C(3,10,:)=C0*pertur(1,4);
+           C(1,15,:)=C0*pertur(1,4);
+            C(15,17,:)=C0*pertur(1,4);
+             C(17,8,:)=C0*pertur(1,4);
+        
+        
+        
     if k<1600
         for i=2:Xnum-1
         for j=2:Ynum-1
@@ -121,50 +129,58 @@ end
 
 
 
-% %===Grafica===
-% for k=2:40:Tnum
-% 
-% 
-% hFig=figure(3);
-%          
-%        ax1= imagesc(C(:,:,k));
-%        xlim([0 20])
-%        ylim([0 20])
-%         
-%         
-% colormap(hFig,flipud(hot))
-%         
+%===Grafica===
+for k=1:1
+
+
+hFig=figure(3);
+ subplot(1,2,1)        
+       ax1= imagesc(C(:,:,k));
+       xlim([0 20])
+       ylim([0 20])
+        
+        
+colormap(hFig,flipud(hot))
+        
 %         title(['Four factories emitting pollutants ',num2str(k)],'Interpreter','latex')
-%         hold on
-%         plot(5:15,9*ones(11),'g','LineWidth',2)
-%         plot(5:15,15*ones(11),'g','LineWidth',2)
-%         plot(5*ones(7),9:15,'g','LineWidth',2)
-%         plot(15*ones(7),9:15,'g','LineWidth',2)
-%        hold on
+        hold on
+        plot(5:15,9*ones(11),'g','LineWidth',2)
+        plot(5:15,15*ones(11),'g','LineWidth',2)
+        plot(5*ones(7),9:15,'g','LineWidth',2)
+        plot(15*ones(7),9:15,'g','LineWidth',2)
+       hold on
 %        plot(12,12,'k.','MarkerSize',13)
 %        plot(14,10,'k.','MarkerSize',13)
 %        plot(8,11,'k.','MarkerSize',13)
 %        plot(9,13,'k.','MarkerSize',13)
-%        
-% Ux(:,5)=Ux_mountain;
-% Ux(:,15)=Ux_mountain;
-% Ux(9,:)=Ux_mountain;
-% Ux(15,:)=Ux_mountain;
-% 
-% 
-% %        plot(4,1,'k*','MarkerSize',13)
-% %        plot(5,1,'k*','MarkerSize',13)
-% % %        plot(7,1,'k*','MarkerSize',13)
-% % %        plot(8,1,'k*','MarkerSize',13)
-% 
-% caxis([0 1.5*C0]);
-% 
-%        
+       
+Ux(:,5)=Ux_mountain;
+Ux(:,15)=Ux_mountain;
+Ux(9,:)=Ux_mountain;
+Ux(15,:)=Ux_mountain;
+
+
+%        plot(4,1,'k*','MarkerSize',13)
+%        plot(5,1,'k*','MarkerSize',13)
+% %        plot(7,1,'k*','MarkerSize',13)
+% %        plot(8,1,'k*','MarkerSize',13)
+
+caxis([0 1.5*C0]);
+
+       
 %         colorbar
-%         xlabel('X grid','Interpreter','latex')
-%         ylabel('Y grid','Interpreter','latex')
-%         hold on         
-%        refreshdata(hFig)
-% 
-%      
-% end
+        xlabel('X grid','FontSize',14)
+        ylabel('Y grid','FontSize',14)
+        hold on         
+       refreshdata(hFig)
+
+       subplot(1,2,2)        
+       ax1= imagesc(C(:,:,k));
+       xlim([0 20])
+       ylim([0 20])
+        xlabel('X grid','FontSize',14)
+        ylabel('Y grid','FontSize',14)
+        
+colormap(hFig,flipud(hot))
+     caxis([0 1.5*C0]);
+end
