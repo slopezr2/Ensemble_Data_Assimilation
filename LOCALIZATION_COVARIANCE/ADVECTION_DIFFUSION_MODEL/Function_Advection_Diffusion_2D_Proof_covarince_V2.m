@@ -130,57 +130,57 @@ end
 
 
 %===Grafica===
-for k=1:1
-
-
-hFig=figure(3);
- subplot(1,2,1)        
-       ax1= imagesc(C(:,:,k));
-       xlim([0 20])
-       ylim([0 20])
-        
-        
-colormap(hFig,flipud(hot))
-        
-%         title(['Four factories emitting pollutants ',num2str(k)],'Interpreter','latex')
-        hold on
-        plot(5:15,9*ones(11),'g','LineWidth',2)
-        plot(5:15,15*ones(11),'g','LineWidth',2)
-        plot(5*ones(7),9:15,'g','LineWidth',2)
-        plot(15*ones(7),9:15,'g','LineWidth',2)
-       hold on
-%        plot(12,12,'k.','MarkerSize',13)
-%        plot(14,10,'k.','MarkerSize',13)
-%        plot(8,11,'k.','MarkerSize',13)
-%        plot(9,13,'k.','MarkerSize',13)
-       
-Ux(:,5)=Ux_mountain;
-Ux(:,15)=Ux_mountain;
-Ux(9,:)=Ux_mountain;
-Ux(15,:)=Ux_mountain;
-
-
-%        plot(4,1,'k*','MarkerSize',13)
-%        plot(5,1,'k*','MarkerSize',13)
-% %        plot(7,1,'k*','MarkerSize',13)
-% %        plot(8,1,'k*','MarkerSize',13)
-
-caxis([0 1.5*C0]);
-
-       
-%         colorbar
-        xlabel('X grid','FontSize',14)
-        ylabel('Y grid','FontSize',14)
-        hold on         
-       refreshdata(hFig)
-
-       subplot(1,2,2)        
-       ax1= imagesc(C(:,:,k));
-       xlim([0 20])
-       ylim([0 20])
-        xlabel('X grid','FontSize',14)
-        ylabel('Y grid','FontSize',14)
-        
-colormap(hFig,flipud(hot))
-     caxis([0 1.5*C0]);
-end
+% for k=1:1
+% 
+% 
+% hFig=figure(3);
+%  subplot(1,2,1)        
+%        ax1= imagesc(C(:,:,k));
+%        xlim([0 20])
+%        ylim([0 20])
+%         
+%         
+% colormap(hFig,flipud(hot))
+%         
+% %         title(['Four factories emitting pollutants ',num2str(k)],'Interpreter','latex')
+%         hold on
+%         plot(5:15,9*ones(11),'g','LineWidth',2)
+%         plot(5:15,15*ones(11),'g','LineWidth',2)
+%         plot(5*ones(7),9:15,'g','LineWidth',2)
+%         plot(15*ones(7),9:15,'g','LineWidth',2)
+%        hold on
+% %        plot(12,12,'k.','MarkerSize',13)
+% %        plot(14,10,'k.','MarkerSize',13)
+% %        plot(8,11,'k.','MarkerSize',13)
+% %        plot(9,13,'k.','MarkerSize',13)
+%        
+% Ux(:,5)=Ux_mountain;
+% Ux(:,15)=Ux_mountain;
+% Ux(9,:)=Ux_mountain;
+% Ux(15,:)=Ux_mountain;
+% 
+% 
+% %        plot(4,1,'k*','MarkerSize',13)
+% %        plot(5,1,'k*','MarkerSize',13)
+% % %        plot(7,1,'k*','MarkerSize',13)
+% % %        plot(8,1,'k*','MarkerSize',13)
+% 
+% caxis([0 1.5*C0]);
+% 
+%        
+% %         colorbar
+%         xlabel('X grid','FontSize',14)
+%         ylabel('Y grid','FontSize',14)
+%         hold on         
+%        refreshdata(hFig)
+% 
+%        subplot(1,2,2)        
+%        ax1= imagesc(C(:,:,k));
+%        xlim([0 20])
+%        ylim([0 20])
+%         xlabel('X grid','FontSize',14)
+%         ylabel('Y grid','FontSize',14)
+%         
+% colormap(hFig,flipud(hot))
+%      caxis([0 1.5*C0]);
+% end
