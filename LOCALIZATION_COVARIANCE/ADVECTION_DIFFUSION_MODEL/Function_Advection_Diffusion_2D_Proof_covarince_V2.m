@@ -129,7 +129,7 @@ end
 
 
 
-%===Grafica===
+% %%%===Grafica===
 % for k=1:1
 % 
 % 
