@@ -6,7 +6,7 @@ clc
 load T_advection_rho.mat
 load RHO_T_Schur_r1
 Tsim=1500;
-Nexp=5; %Number of experiments for each scenario
+Nexp=1; %Number of experiments for each scenario
 for Nm=1:3
     m_opt=[50 100 200];    
     m=m_opt(Nm);
