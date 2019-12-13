@@ -11,7 +11,7 @@ load RHO_advection_r5.mat
 load RHO_T_Schur_r1
 load RHO_T_Schur_r2
 load meanP0
-Tsim=1500;
+Tsim=1000;
 m=200;
 n=20*20;
 sigma=1e-3;

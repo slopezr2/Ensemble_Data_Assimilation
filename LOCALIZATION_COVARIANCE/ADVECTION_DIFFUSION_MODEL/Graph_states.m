@@ -13,8 +13,8 @@ plot(movmean([0 meanxa_ledoid(i,:)],100),'LineWidth',2,'Color',[0.8500    0.3250
 plot(movmean([0 meanxa_EnKF_KA(i,:)],100),'LineWidth',2,'Color',[0.9290    0.6940    0.1250 ])
 legend({'x*','Free-Run','EnKF-CL','EnKF-RBLW','EnKF-KA'},'FontSize',12,'Position',[0.788921427092591 0.395801368442731 0.104685210291498 0.17050690763557])
 ylabel('Concentration','FontSize',14)
-xlabel('Time[h]','FontSize',14)
-% title(['Comparisson in state ',Location{k}],'FontSize',14)
-saveas(fig,Name_file{k},'epsc')
+xlabel('Time step','FontSize',14)
+xlim([0 1000])
+%  saveas(fig,Name_file{k},'epsc')
 k=k+1;
 end

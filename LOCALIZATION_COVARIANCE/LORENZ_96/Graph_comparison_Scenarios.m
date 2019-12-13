@@ -27,7 +27,7 @@ for Nm=[1 2]
             plot([1.25;log10(movmean(squeeze((mean(error_EnKF_KA(Nm,freq,Nen,kk3,:),4))),100))],'Marker','.','LineWidth',2)
             legend({'EnKF-Cl','EnKF-RBLW','EnKF-KA'},'FontSize',12)
             ylabel('log(L_t)','FontSize',15)
-            xlabel('Time[h]','FontSize',15)
+            xlabel('Time step','FontSize',15)
             titulo=['N= ',num2str(Nen_opt(Nen)),', \delta','t= ',num2str(freq_opt(freq)),' h',', s= ',num2str(Nm_opt(Nm)/100)];
 %             title(titulo)
             figmat=(['N_',num2str(Nen_opt(Nen)),'_Observed_states_',num2str(Nm_opt(Nm)),'_Observation_',num2str(freq_opt(freq))]);

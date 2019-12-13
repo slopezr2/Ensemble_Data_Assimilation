@@ -26,7 +26,7 @@ for Nm=[1 3]
             legend({'EnKF-Cl','EnKF-RBLW','EnKF-KA'},'FontSize',12,'Position',[0.652976195372285 0.223015877486221 0.255357137961047 0.161904757434414])
             end
             ylabel('log(L_t)','FontSize',12)
-            xlabel('Time[h]','FontSize',12)
+            xlabel('Time step','FontSize',12)
             titulo=['N= ',num2str(Nen_opt(Nen)),', \delta','t= ',num2str(freq_opt(freq)),' h',', s= ',num2str(Nm_opt(Nm)/100)];
 %             title(titulo)
             figmat=(['N_',num2str(Nen_opt(Nen)),'_Observed_',num2str(Nm_opt(Nm)),'_frequency_',num2str(freq_opt(freq))]);
